@@ -1,0 +1,27 @@
+<div class="h-full !space-y-3 rounded-lg bg-gray-lightest p-4 text-gray">
+  <div class="flex items-center justify-between">
+    <p class="text-base font-medium text-gray">Quick Transfers</p>
+    <div class="flex items-center justify-center gap-1 text-gray-500">
+      <div class="text-sm font-medium">add</div>
+      <mat-icon
+        class="text-base"
+        style="display: flex; align-items: center; justify-content: center"
+        >add</mat-icon
+      >
+    </div>
+  </div>
+  <div class="space-y-2 divide-y divide-[#DADAED]">
+    @for (qt of data; track qt.name; let last = $last) {
+      <div class="flex items-center justify-between pt-2">
+        <div class="flex items-center space-x-2 text-sm text-gray">
+          <app-avatar [icon]="qt.icon" />
+          <div>
+            <p>{{ qt.name }}</p>
+            <p class="text-gray-light">{{ qt.account }}</p>
+          </div>
+        </div>
+        <mat-icon class="text-gray-light">chevron_right</mat-icon>
+      </div>
+    }
+  </div>
+</div>
