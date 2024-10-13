@@ -1,0 +1,68 @@
+<div class="!space-y-3 rounded-lg bg-gray-lightest p-4 text-gray">
+  <div class="flex items-center justify-between">
+    <p class="text-base font-medium text-gray">Investment</p>
+    <div class="flex items-center gap-0 text-gray-500">
+      <p class="text-sm font-medium">today</p>
+      <mat-icon
+        class="text-base"
+        style="display: flex; align-items: center; justify-content: center"
+        >keyboard_arrow_down</mat-icon
+      >
+    </div>
+  </div>
+
+  <div class="space-y-2 divide-y divide-[#DADAED]">
+    @for (inv of data; track inv.title; let last = $last) {
+      <div class="flex items-center space-x-2 pt-2">
+        <app-avatar [icon]="inv.icon" />
+
+        <div class="w-full text-gray">
+          <div class="flex justify-between">
+            <p>{{ inv.title }}</p>
+
+            <span
+              class="flex text-xs"
+              [ngClass]="
+                inv.todayValue < inv.yesterdayValue
+                  ? 'text-red-500'
+                  : 'text-green-500'
+              "
+            >
+              @if (inv.todayValue > inv.yesterdayValue) {
+                <mat-icon>trending_up</mat-icon>
+              } @else {
+                <mat-icon>trending_down</mat-icon>
+              }
+              &nbsp;
+
+              {{
+                calculateValueChangedPercent(
+                  inv.yesterdayValue,
+                  inv.todayValue
+                )
+              }}%
+            </span>
+
+            <p>
+              {{ inv.todayValue | currency: "USD" }}
+            </p>
+          </div>
+
+          <div class="flex justify-between text-xs">
+            <p class="text-gray-light">{{ inv.description }}</p>
+            <p
+              [ngClass]="
+                inv.todayValue > inv.yesterdayValue
+                  ? 'text-green-500'
+                  : 'text-red-500'
+              "
+            >
+              {{ inv.todayValue > inv.yesterdayValue ? "+" : ""
+              }}{{ inv.todayValue - inv.yesterdayValue | currency: "USD" }}
+            </p>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>
