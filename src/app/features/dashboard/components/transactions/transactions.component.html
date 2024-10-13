@@ -1,0 +1,41 @@
+<div class="!space-y-3 rounded-lg bg-gray-lightest p-4 text-gray">
+  <div class="flex items-center justify-between">
+    <p class="text-base font-medium text-gray">Transactions</p>
+    <div class="flex items-center justify-center gap-1 text-gray-500">
+      <div class="text-sm font-medium">today</div>
+      <mat-icon
+        class="text-base"
+        style="display: flex; align-items: center; justify-content: center"
+        >keyboard_arrow_down</mat-icon
+      >
+    </div>
+  </div>
+
+  <div class="space-y-2 divide-y divide-[#DADAED]">
+    @for (tranx of data; track tranx.title; let last = $last) {
+      <div class="flex items-center space-x-2 pt-2">
+        <app-avatar [icon]="tranx.icon" />
+
+        <div class="w-full text-gray">
+          <div class="flex justify-between">
+            <p>{{ tranx.title }}</p>
+
+            <p
+              [ngClass]="
+                tranx.flow === 'in' ? 'text-green-500' : 'text-red-500'
+              "
+            >
+              {{ tranx.flow === "in" ? "+" : "-"
+              }}{{ tranx.amount | currency: "USD" : "symbol" : "1.0-0" }}
+            </p>
+          </div>
+
+          <div class="flex justify-between text-xs">
+            <p class="text-gray-light">{{ tranx.description }}</p>
+            <p>{{ tranx.type }}</p>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>
