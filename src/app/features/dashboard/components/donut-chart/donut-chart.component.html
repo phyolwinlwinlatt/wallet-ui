@@ -1,0 +1,15 @@
+<div class="!space-y-3 rounded-lg bg-gray-lightest p-4 text-gray">
+ <div class="flex items-center justify-between pb-2">
+    <p class="text-base font-medium text-gray">Expenses</p>
+    <div class="flex items-center justify-center gap-1 text-gray-500">
+      <div class="text-sm font-medium">today</div>
+      <mat-icon
+        class="text-base"
+        style="display: flex; align-items: center; justify-content: center"
+        >keyboard_arrow_down</mat-icon
+      >
+    </div>
+  </div>
+
+  <ag-charts [options]="chartOptions" style="display: block"></ag-charts>
+</div>
