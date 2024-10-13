@@ -1,0 +1,42 @@
+<div class="rounded-lg bg-gray-lightest p-4 text-gray">
+  <div class="flex items-center justify-between">
+    <p class="text-base font-medium text-gray">{{ title }}</p>
+    <div class="flex items-center gap-0 text-gray-500">
+      <p class="text-sm font-medium">this month</p>
+      <mat-icon
+        class="text-base"
+        style="display: flex; align-items: center; justify-content: center"
+        >keyboard_arrow_down</mat-icon
+      >
+    </div>
+  </div>
+  <div class="flex items-end justify-between gap-6">
+    <div class="flex flex-col gap-3">
+      <p class="text-2xl font-medium">
+        {{ thisMonthValue | currency: "USD" : "symbol" : "1.0-0" }}
+      </p>
+      <span
+        class="mt-auto flex items-center text-xs"
+        [ngClass]="
+          thisMonthValue < lastMonthValue ? 'text-red-500' : 'text-green-500'
+        "
+      >
+        @if (thisMonthValue > lastMonthValue) {
+          <mat-icon>trending_up</mat-icon>
+        } @else {
+          <mat-icon>trending_down</mat-icon>
+        }
+        &nbsp;
+
+        {{ percentChanged }}%
+      </span>
+    </div>
+    <div class="flex">
+      @if (thisMonthValue > lastMonthValue) {
+        <app-tranding-up-chart />
+      } @else {
+        <app-tranding-down-chart />
+      }
+    </div>
+  </div>
+</div>
