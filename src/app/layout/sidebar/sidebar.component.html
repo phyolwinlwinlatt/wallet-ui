@@ -1,0 +1,75 @@
+<nav class="flex min-h-screen flex-col gap-2 !bg-white !font-acumin">
+  <div class="flex items-center px-8 text-center">
+    <img
+      src="assets/images/wallet-logo.jpg"
+      alt="logo"
+      class="inline-block w-16"
+    />
+    <h3 class="text-lg font-normal">Wallet</h3>
+  </div>
+
+  <div class="flex h-full flex-col gap-4">
+    <div class="space-y-1">
+      @for (link of navLinks; track link) {
+        <a
+          [routerLink]="link.route"
+          routerLinkActive
+          #rla="routerLinkActive"
+          class="flex items-center px-10 py-2.5 font-acumin text-gray hover:border-r-2 hover:border-r-purple-light hover:bg-gradient-to-r hover:from-cyan-light hover:via-purple-lighter hover:to-pink-light"
+          [ngClass]="{
+            'border-r-2 border-r-purple-light bg-gradient-to-r from-cyan-light via-purple-lighter to-pink-light':
+              rla.isActive,
+          }"
+        >
+          <mat-icon class="flex items-center justify-center text-inherit">{{
+            link.icon
+          }}</mat-icon>
+
+          <span class="ml-3 font-acumin text-sm tracking-wide">
+            {{ link.label }}
+          </span>
+
+          @if (link.count) {
+            <div
+              class="ml-auto flex h-6 w-6 items-center justify-center rounded-full bg-purple-light text-xs leading-none text-white"
+            >
+              {{ link.count }}
+            </div>
+          }
+        </a>
+      }
+    </div>
+
+    <div class="space-y-1 border-t border-[#DADAED] pt-4">
+      <a
+        routerLink="/settings"
+        routerLinkActive
+        #rla="routerLinkActive"
+        class="flex items-center border-r-white px-10 py-2.5 font-acumin text-gray hover:border-r-2 hover:border-r-purple-light hover:bg-gradient-to-r hover:from-cyan-light hover:via-purple-lighter hover:to-pink-light"
+      >
+        <mat-icon class="flex items-center justify-center text-inherit"
+          >settings</mat-icon
+        >
+        <a class="ml-3 font-acumin text-sm tracking-wide"> Settings </a>
+      </a>
+      <a
+        routerLink="/"
+        routerLinkActive
+        #rla="routerLinkActive"
+        class="flex items-center border-r-white px-10 py-2.5 font-acumin text-gray hover:border-r-2 hover:border-r-purple-light hover:bg-gradient-to-r hover:from-cyan-light hover:via-purple-lighter hover:to-pink-light"
+      >
+        <mat-icon class="flex items-center justify-center text-inherit"
+          >logout</mat-icon
+        >
+        <a class="ml-3 font-acumin text-sm tracking-wide"> Log out </a>
+      </a>
+    </div>
+
+    <div class="mt-auto flex items-center px-10 py-4 font-acumin text-gray">
+      <mat-icon class="flex items-center justify-center text-purple-light"
+        >toggle_off</mat-icon
+      >
+      <a class="ml-3 font-acumin text-sm tracking-wide"> Switch To Light </a>
+    </div>
+  </div>
+</nav>

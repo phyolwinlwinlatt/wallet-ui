@@ -1,0 +1,27 @@
+<mat-toolbar
+  class="flex items-center justify-between !bg-gray-lighter font-acumin"
+>
+  <div class="flex items-center space-x-4 lg:space-x-0">
+    <button mat-icon-button (click)="toggleSideNav()" class="lg:hidden">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <h1>{{ pageTitle }}</h1>
+  </div>
+
+  <div class="flex !items-center space-x-4">
+    <app-search-box class="hidden md:block" />
+
+    <div
+      class="flex min-w-64 items-center space-x-1 rounded-md bg-white px-2 py-0.5"
+    >
+      <p class="mr-auto text-sm text-gray">Hello, Michaela!</p>
+      <button>
+        <mat-icon class="text-gray">mail</mat-icon>
+      </button>
+      <button matBadge="5">
+        <mat-icon class="text-gray">notifications</mat-icon>
+      </button>
+    </div>
+  </div>
+</mat-toolbar>
