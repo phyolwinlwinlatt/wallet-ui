@@ -1,0 +1,17 @@
+<mat-sidenav-container class="box-border flex min-h-screen !bg-white flex-col">
+  <mat-sidenav
+    #snavRef
+    [mode]="mobileQuery.matches ? 'over' : 'side'"
+    [opened]="mobileQuery.matches ? false : true"
+    class="!w-64 !bg-white h-full"
+  >
+    <app-sidebar />
+  </mat-sidenav>
+
+  <mat-sidenav-content class="flex-1 bg-gray-lighter px-4">
+    <app-toolbar [snav]="snavRef" />
+    <div class="flex h-full flex-col">
+      <router-outlet />
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

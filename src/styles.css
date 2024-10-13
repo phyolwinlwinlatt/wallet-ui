@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "Acumin Pro";
+    font-style: normal;
+    font-weight: normal;
+    src:
+      local("Acumin Pro"),
+      url("../public/assets/fonts/Acumin-RPro.woff") format("woff");
+  }
+
+  @font-face {
+    font-family: "Acumin Pro Italic";
+    font-style: normal;
+    font-weight: normal;
+    src:
+      local("Acumin Pro Italic"),
+      url("../public/assets/fonts/Acumin-ItPro.woff") format("woff");
+  }
+
+  @font-face {
+    font-family: "Acumin Pro Bold";
+    font-style: normal;
+    font-weight: normal;
+    src:
+      local("Acumin Pro Bold"),
+      url("../public/assets/fonts/Acumin-BdPro.woff") format("woff");
+  }
+
+  @font-face {
+    font-family: "Acumin Pro Bold Italic";
+    font-style: normal;
+    font-weight: normal;
+    src:
+      local("Acumin Pro Bold Italic"),
+      url("../public/assets/fonts/Acumin-BdItPro.woff") format("woff");
+  }
+}
+
+html,
+body {
+  height: 100%;
+  font-family: "Acumin Pro", sans-serif;
+}
+body {
+  margin: 0;
+  font-family: "Acumin Pro", sans-serif;
+}
+
+.mat-drawer {
+  border-radius: 0px !important;
+}
+
+.mat-drawer-inner-container {
+  background-color: white;
+}
