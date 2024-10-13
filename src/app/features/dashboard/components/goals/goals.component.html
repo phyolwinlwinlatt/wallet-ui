@@ -1,0 +1,36 @@
+<div class="!space-y-3 rounded-lg bg-gray-lightest p-4 text-gray">
+  <div class="flex items-center justify-between">
+    <p class="text-base font-medium text-gray">Goals</p>
+    <div class="flex items-center gap-0 text-gray-500">
+      <p class="text-sm font-medium">add goal</p>
+      <mat-icon
+        class="text-base"
+        style="display: flex; align-items: center; justify-content: center"
+        >add</mat-icon
+      >
+    </div>
+  </div>
+
+  <div class="space-y-4">
+    @for (goal of data; track goal.goalName) {
+      <div class="flex space-x-2 text-sm text-gray">
+        <app-avatar [icon]="goal.icon" />
+        <div class="w-full">
+          <div class="flex justify-between">
+            <p>{{ goal.goalName }}</p>
+            <p>
+              {{ goal.currentAmount | currency: "USD" : "symbol" : "1.0-0" }}
+              /
+              {{ goal.targetAmount | currency: "USD" : "symbol" : "1.0-0" }}
+            </p>
+          </div>
+
+          <mat-progress-bar
+            mode="determinate"
+            [value]="calculatePercent(goal.currentAmount, goal.targetAmount)"
+          />
+        </div>
+      </div>
+    }
+  </div>
+</div>
