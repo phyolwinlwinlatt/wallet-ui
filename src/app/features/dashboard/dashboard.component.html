@@ -1,0 +1,78 @@
+<div class="flex h-full flex-1 flex-col gap-3 pb-2 lg:flex-row">
+  <div class="grid flex-1 gap-3 lg:grid-cols-3">
+    <!-- <div> -->
+    <app-metrics
+      title="Income"
+      [thisMonthValue]="6558"
+      [lastMonthValue]="5000"
+    />
+    <!-- </div> -->
+
+    <!-- <div> -->
+    <app-metrics
+      title="Expenses"
+      [thisMonthValue]="1420"
+      [lastMonthValue]="2000"
+    />
+    <!-- </div> -->
+
+    <!-- <div> -->
+    <app-metrics
+      title="Investment"
+      [thisMonthValue]="950"
+      [lastMonthValue]="800"
+    />
+    <!-- </div> -->
+
+    <!-- <div>
+    <app-metrics
+      title="Savings"
+      [thisMonthValue]="4188"
+      [lastMonthValue]="5000"
+    />
+  </div> -->
+
+    <div class="lg:col-span-2">
+      <app-area-chart />
+    </div>
+
+    <!-- <div> -->
+    <app-bar-chart />
+    <!-- </div> -->
+
+    <!-- <div class=""> -->
+    <app-quick-transfers [data]="quickTransfers" />
+    <!-- </div> -->
+    <!-- 
+  <div>
+    <app-quick-transfers [data]="quickTransfers" />
+  </div> -->
+
+    <!-- <div> -->
+    <app-transactions [data]="transactions" />
+    <!-- </div> -->
+
+    <!-- <div> -->
+    <app-investment [data]="investments" />
+    <!-- </div> -->
+
+    <!-- <div>
+    <app-goals [data]="goals" />
+  </div> -->
+  </div>
+  <div class="flex w-full flex-col gap-3 lg:w-80">
+    <!-- <div> -->
+    <!-- <app-metrics
+        title="Savings"
+        [thisMonthValue]="4188"
+        [lastMonthValue]="5000"
+      /> -->
+    <app-my-cards class="" />
+    <!-- </div> -->
+    <app-donut-chart />
+
+    <!-- <div> -->
+    <app-goals [data]="goals" />
+    <!-- </div> -->
+  </div>
+</div>
